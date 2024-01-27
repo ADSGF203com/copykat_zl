@@ -227,7 +227,7 @@ start_time <- Sys.time()
     results <- CNA.MCMC(clu=CL, fttmat=norm.mat.relat, bins=win.size, cut.cor = 0.5*0.5*KS.cut, n.cores=n.cores)
   }
 
-  if(length(results$breaks)<25) stop ("too few segments; try to decrease KS.cut; or improve data")
+  if(length(results$breaks)<1) stop ("too few segments; try to decrease KS.cut; or improve data")
 
   colnames(results$logCNA) <- colnames(norm.mat.relat)
   results.com <- apply(results$logCNA,2, function(x)(x <- x-mean(x)))
