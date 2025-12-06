@@ -103,6 +103,7 @@ start_time <- Sys.time()
   rawmat3 <- data.matrix(anno.mat[, 8:ncol(anno.mat)])
   norm.mat<- log(sqrt(rawmat3)+sqrt(rawmat3+1))
   norm.mat<- apply(norm.mat,2,function(x)(x <- x-mean(x)))
+  norm.mat =as.data.frame(norm.mat)
   colnames(norm.mat) <-  colnames(rawmat3)
 
   #print(paste("A total of ", ncol(norm.mat), " cells, ", nrow(norm.mat), " genes after preprocessing", sep=""))
