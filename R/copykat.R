@@ -100,7 +100,7 @@ start_time <- Sys.time()
 #  }
 
   # print(paste("filtered out ", length(ToRemov2), " cells with less than ",ngene.chr, " genes per chr", sep=""))
-  rawmat3 <- data.matrix(anno.mat[, 8:ncol(anno.mat)])
+  rawmat3 <- data.frame(anno.mat[, 8:ncol(anno.mat)])
   norm.mat<- log(sqrt(rawmat3)+sqrt(rawmat3+1))
   norm.mat<- apply(norm.mat,2,function(x)(x <- x-mean(x)))
   norm.mat =as.data.frame(norm.mat)
